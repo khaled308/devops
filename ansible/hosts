@@ -1,0 +1,7 @@
+[aws]
+54.210.140.76
+44.206.235.110
+
+[aws:vars]
+ansible_ssh_private_key_file=/home/khaled/.ssh/aws.pem
+ansible_user=ubuntu
