@@ -21,17 +21,19 @@ spec:
           ports:
             - containerPort: 27017
           resources:
-          # env:
-          #   - name: MONGO_USERNAME
-          #     valueFrom:
-          #       secretKeyRef:
-          #         name: app-secret
-          #         key: mongo-username
-          #   - name: MONGO_PASSWORD
-          #     valueFrom:
-          #       secretKeyRef:
-          #         name: app-secret
-          #         key: mongo-password
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: mongo-username
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: mongo-password
+            - name: MONGO_INITDB_DATABASE
+              value: "app-db"
 ---
 apiVersion: v1
 kind: Service

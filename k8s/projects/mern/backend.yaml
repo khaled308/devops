@@ -22,11 +22,18 @@ spec:
             - containerPort: 8000
           resources:
           env:
-            - name: MONGO_URL
+            - name: MONGO_USERNAME
               valueFrom:
-                configMapKeyRef:
-                  name: app-config
-                  key: mongo-url
+                secretKeyRef:
+                  name: app-secret
+                  key: mongo-username
+            - name: MONGO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: mongo-password
+            - name: MONGO_URL
+              value: "mongodb://$(MONGO_USERNAME):$(MONGO_PASSWORD)@mongo-service:27017/app-db?authSource=admin"
             - name: PORT
               valueFrom:
                 configMapKeyRef:

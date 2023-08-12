@@ -3,5 +3,4 @@ kind: ConfigMap
 metadata:
   name: app-config
 data:
-  mongo-url: mongodb://mongo-service:27017
   app-port: "8000"
