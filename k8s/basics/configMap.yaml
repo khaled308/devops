@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-app
+data:
+  name: khaled
+  url: http://localhost
