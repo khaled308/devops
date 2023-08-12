@@ -8,12 +8,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backed-app
+      app: backend-app
   template:
     metadata:
-      name: backed-app
+      name: backend-app
       labels:
-        app: backed-app
+        app: backend-app
     spec:
       containers:
         - name: backend
